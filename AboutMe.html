@@ -7,7 +7,29 @@
 </head>
 <body>
 
-    <h1 id="top">About Me!</h1>
+    <!-- Header Section -->
+    <header id="top">
+        <h1>About Me!</h1>
+        <p><strong>Ayush Diyundi</strong> | Aspiring Software Developer | DHBW Mosbach, Germany</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#introduction">Introduction</a> |
+        <a href="#photos">Photos</a> |
+        <a href="#hobbies">Hobbies</a> |
+        <a href="#favorite-books">Books</a> |
+        <a href="#favorite-movies">Movies</a> |
+        <a href="#video">Video</a> |
+        <a href="#location">Location</a> |
+        <a href="#contact">Contact</a> |
+        <a href="#conclusion">Conclusion</a>
+    </nav>
+
+    <br>
+
+    <!-- Main Content -->
+    <main>
 
     <!-- Introduction Section -->
     <section id="introduction">
@@ -102,19 +124,36 @@
         <h3>Favorite Books</h3>
         <p>Reading is one of my <em>favorite</em> ways to relax. Here are my <strong>top picks</strong>:</p>
         <ol>
-            <li><b>"The Kite Runner"</b> by <i>Khaled Hosseini</i>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/The_Kite_Runner" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/62/Kite_runner.jpg" alt="The Kite Runner Book Cover" width="100" height="150">
+                </a>
+                <br>
+                <b><a href="https://en.wikipedia.org/wiki/The_Kite_Runner" target="_blank">"The Kite Runner"</a></b> by <i>Khaled Hosseini</i>
                 <ul>
                     <li>A story of friendship and redemption</li>
                     <li>Set against the backdrop of a changing country</li>
                 </ul>
+                <br><br>
             </li>
-            <li><b>"The Alchemist"</b> by <i>Paulo Coelho</i>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/The_Alchemist_(novel)" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/TheAlchemist.jpg" alt="The Alchemist Book Cover" width="100" height="150">
+                </a>
+                <br>
+                <b><a href="https://en.wikipedia.org/wiki/The_Alchemist_(novel)" target="_blank">"The Alchemist"</a></b> by <i>Paulo Coelho</i>
                 <ul>
                     <li>A story about following your dreams</li>
                     <li>Inspirational and thought-provoking</li>
                 </ul>
+                <br><br>
             </li>
-            <li><b>"If Tomorrow Comes"</b> by <i>Sydney Sheldon</i>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/If_Tomorrow_Comes_(novel)" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/2a/If_Tomorrow_Comes.jpg" alt="If Tomorrow Comes Book Cover" width="100" height="150">
+                </a>
+                <br>
+                <b><a href="https://en.wikipedia.org/wiki/If_Tomorrow_Comes" target="_blank">"If Tomorrow Comes"</a></b> by <i>Sidney Sheldon</i>
                 <ul>
                     <li>A thrilling tale of suspense</li>
                     <li>Explores themes of fate and resilience</li>
@@ -125,12 +164,83 @@
 
     <br>
 
+    <!-- Favorite Movies Table Section -->
+    <section id="favorite-movies">
+        <h3>Favorite Movies</h3>
+        <p>Here are some of my <strong>all-time favorite movies</strong>:</p>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><b>Title</b></th>
+                    <th><b>Director</b></th>
+                    <th><b>Release Year</b></th>
+                    <th><b>IMDb Link</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Shutter Island</td>
+                    <td>Martin Scorsese</td>
+                    <td rowspan="2">2010</td>
+                    <td><a href="https://www.imdb.com/title/tt1130884/" target="_blank">IMDb</a></td>
+                </tr>
+                <tr>
+                    <td>Inception</td>
+                    <td>Christopher Nolan</td>
+                    <td><a href="https://www.imdb.com/title/tt1375666/" target="_blank">IMDb</a></td>
+                </tr>
+                <tr>
+                    <td>Batman Begins</td>
+                    <td rowspan="3">Christopher Nolan</td>
+                    <td>2005</td>
+                    <td><a href="https://www.imdb.com/title/tt0372784/" target="_blank">IMDb</a></td>
+                </tr>
+                <tr>
+                    <td>The Dark Knight</td>
+                    <td>2008</td>
+                    <td><a href="https://www.imdb.com/title/tt0468569/" target="_blank">IMDb</a></td>
+                </tr>
+                <tr>
+                    <td>The Dark Knight Rises</td>
+                    <td>2012</td>
+                    <td><a href="https://www.imdb.com/title/tt1345836/" target="_blank">IMDb</a></td>
+                </tr>
+                <tr>
+                    <td>Edge of Tomorrow</td>
+                    <td>Doug Liman</td>
+                    <td>2014</td>
+                    <td><a href="https://www.imdb.com/title/tt1631867/" target="_blank">IMDb</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <br>
+
+    <!-- YouTube Video Section -->
+    <section id="video">
+        <h3>Favorite YouTube Video</h3>
+        <p>Here's a <strong>CSS course from Harvard CS50</strong> that I highly recommend:</p>
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/zFZrkCIc2Oc" 
+            title="CS50 CSS Course - Harvard" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+        <p><small>Harvard CS50's Web Programming with Python and JavaScript - CSS Lecture</small></p>
+    </section>
+
+    <br>
+
     <!-- My Location Section with Google Map -->
     <section id="location">
         <h3>My Location</h3>
         <p>I am currently studying at <strong>DHBW Mosbach</strong> in Germany. Here's the location on the map:</p>
         <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2598.9088088459!2d9.14499!3d49.35199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47984d4b7c6c3a7f%3A0x8e6b9f1e2e2c8c8!2sDHBW%20Mosbach!5e0!3m2!1sen!2sde!4v1234567890123" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2598.908808845912!2d9.142801576892088!3d49.35198997138767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47984b5f4e88d6b9%3A0x9e0e9c0d8c8a1234!2sDuale%20Hochschule%20Baden-W%C3%BCrttemberg%20Mosbach!5e0!3m2!1sen!2sde!4v1707220000000!5m2!1sen!2sde" 
             width="600" 
             height="450" 
             style="border:0;" 
@@ -138,6 +248,7 @@
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
+        <p><small>📍 DHBW Mosbach, Germany</small></p>
     </section>
 
     <br>
@@ -150,6 +261,52 @@
             <li>Email: <a href="mailto:ayu.diyundi.25@lehre.mosbach.dhbw.de">ayu.diyundi.25@lehre.mosbach.dhbw.de</a></li>
             <li>GitHub: <a href="https://github.com/AyushDiyundi" target="_blank">AyushDiyundi</a></li>
         </ul>
+
+        <br>
+        <h4>Send me a Message</h4>
+        <form action="#" method="POST">
+            <!-- Full Name (Required) -->
+            <label for="fullName"><b>Full Name:</b> <span style="color: red;">*</span></label><br>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            <br><br>
+
+            <!-- Email Address -->
+            <label for="email"><b>Email Address:</b></label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email address">
+            <br><br>
+
+            <!-- Phone Number -->
+            <label for="phone"><b>Phone Number:</b></label><br>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9+\-\s()]*">
+            <br><br>
+
+            <!-- Gender (Radio Buttons - only one option) -->
+            <label><b>Gender:</b></label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+            <input type="radio" id="preferNotToSay" name="gender" value="preferNotToSay">
+            <label for="preferNotToSay">Prefer not to say</label>
+            <br><br>
+
+            <!-- Favorite Color -->
+            <label for="favoriteColor"><b>Favorite Color:</b></label><br>
+            <input type="color" id="favoriteColor" name="favoriteColor" value="#3498db">
+            <br><br>
+
+            <!-- Message -->
+            <label for="message"><b>Message:</b></label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Write your message here..."></textarea>
+            <br><br>
+
+            <!-- Submit Button -->
+            <button type="submit"><b>Submit</b></button>
+            <button type="reset">Reset</button>
+        </form>
+        <p><small><span style="color: red;">*</span> Required field</small></p>
     </section>
 
     <br>
@@ -166,16 +323,21 @@
         </p>
         <p>
             <b>Thank you</b> so much for taking the time to read about me!<br>
-            <i>I hope you enjoyed learning a little bit about who I am.</i>
+            <i>I hope you enjoyed learning a little bit about who I am.</i><br><br>
+            For more programming resources and tutorials, check out my favorite website: 
+            <a href="https://www.geeksforgeeks.org/" target="_blank"><strong>GeeksforGeeks</strong></a>
         </p>
     </section>
 
+    </main>
+
     <br>
 
-    <!-- Back to Top Link -->
-    <div class="back-to-top">
+    <!-- Footer Section -->
+    <footer>
+        <p><strong>© 2026 Ayush Diyundi</strong> | All Rights Reserved</p>
         <a href="#top">⬆ Back to Top</a>
-    </div>
+    </footer>
 
 </body>
 </html>
