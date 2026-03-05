@@ -4,6 +4,528 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me!</title>
+    <style>
+        /* ========================================
+           ABOUT ME - INTERNAL STYLESHEET
+           ======================================== */
+
+        /* 1. CSS RESET & BOX MODEL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 2. TYPOGRAPHY & BASE STYLES */
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* 3. HEADER STYLES - FLEXBOX CENTERING */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 200px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.625rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: capitalize;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 4. NAVIGATION - FLEXBOX LAYOUT */
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.625rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        nav a:active {
+            transform: translateY(0);
+        }
+
+        /* 5. MAIN CONTENT CONTAINER */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.25rem;
+        }
+
+        /* 6. SECTION STYLES - CARD LAYOUT */
+        section {
+            background: white;
+            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 1.75rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.625rem;
+            margin-bottom: 1.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        section h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section h4 {
+            color: #555;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.625rem 0;
+        }
+
+        /* 7. PHOTO GALLERY - CSS GRID */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .photo-item {
+            text-align: center;
+        }
+
+        .photo-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 100%;
+            height: auto;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        ul, ol {
+            margin-left: 1.875rem;
+            margin-top: 0.625rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .hobbies-list > li {
+            flex: 1;
+            min-width: 200px;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* 11. FORM STYLES */
+        form {
+            margin-top: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 0.5rem;
+        }
+
+        input[type="radio"] {
+            margin-right: 0.3rem;
+        }
+
+        .btn-group {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.625rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.875rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button[type="reset"] {
+            background: #888;
+        }
+
+        button[type="reset"]:hover {
+            background: #666;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #5a67d8;
+        }
+
+        .profile-links {
+            list-style: none;
+            margin-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .profile-links li {
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .profile-links li:hover {
+            background: #e0e0e0;
+        }
+
+        iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.625rem;
+        }
+
+        footer a {
+            color: #667eea;
+        }
+
+        footer a:hover {
+            color: #a0aeff;
+        }
+
+        mark {
+            background-color: #ffeaa7;
+            padding: 0.125rem 0.3rem;
+            border-radius: 3px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        @media screen and (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+
+            header {
+                padding: 2rem 1rem;
+                min-height: 150px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 0.75rem;
+            }
+
+            nav a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .hobbies-list {
+                flex-direction: column;
+            }
+
+            .hobbies-list > li {
+                min-width: 100%;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+
+            iframe {
+                width: 100%;
+                height: auto;
+                min-height: 300px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            nav a {
+                display: block;
+                text-align: center;
+                padding: 0.75rem;
+            }
+
+            main {
+                padding: 0.75rem;
+            }
+
+            section {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            section h2 {
+                font-size: 1.4rem;
+            }
+
+            section h3 {
+                font-size: 1.2rem;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea {
+                max-width: 100%;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .profile-links {
+                flex-direction: column;
+            }
+
+            .profile-links li {
+                text-align: center;
+            }
+
+            iframe {
+                min-height: 250px;
+            }
+        }
+
+        @media print {
+            nav, footer, .btn-group, button {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,24 +537,22 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="#introduction">Introduction</a> |
-        <a href="#photos">Photos</a> |
-        <a href="#hobbies">Hobbies</a> |
-        <a href="#favorite-books">Books</a> |
-        <a href="#favorite-movies">Movies</a> |
-        <a href="#video">Video</a> |
-        <a href="#location">Location</a> |
-        <a href="#contact">Contact</a> |
+        <a href="#introduction">Introduction</a>
+        <a href="#photos">Photos</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#favorite-books">Books</a>
+        <a href="#favorite-movies">Movies</a>
+        <a href="#video">Video</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
         <a href="#conclusion">Conclusion</a>
     </nav>
-
-    <br>
 
     <!-- Main Content -->
     <main>
 
     <!-- Introduction Section -->
-    <section id="introduction">
+    <section id="introduction" class="bio-section">
         <h2>Introduction</h2>
         <p>
             Hello! My name is <strong>Ayush Diyundi</strong>.<br>
@@ -48,44 +568,49 @@
         </p>
     </section>
 
-    <br>
-
-    <!-- Photo Gallery Section -->
-    <section id="photos">
+    <!-- Photo Gallery Section - Using CSS Grid -->
+    <section id="photos" class="gallery-section">
         <h3>Photo Gallery</h3>
         <p>Here are some <strong>photos</strong> related to my interests:</p>
         
-        <h4>🍳 Cooking</h4>
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop" alt="Cooking" width="300" height="200">
-        <br><br>
-        
-        <h4>🎮 Gaming</h4>
-        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop" alt="Gaming Setup" width="300" height="200">
-        <br><br>
-        
-        <h4>🎬 Anime & Movies</h4>
-        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=200&fit=crop" alt="Cinema" width="300" height="200">
-        <br><br>
-        
-        <h4>🏋️ Fitness</h4>
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&h=200&fit=crop" alt="Gym" width="300" height="200">
-        <br><br>
-        
-        <h4>🇮🇳 India - My Homeland</h4>
-        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=300&h=200&fit=crop" alt="India - Taj Mahal" width="300" height="200">
-        <br><br>
-        
-        <h4>🇩🇪 Germany - My Current Home</h4>
-        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=300&h=200&fit=crop" alt="Germany" width="300" height="200">
+        <div class="photo-grid">
+            <div class="photo-item">
+                <h4>🍳 Cooking</h4>
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop" alt="Cooking" width="300" height="200">
+            </div>
+            
+            <div class="photo-item">
+                <h4>🎮 Gaming</h4>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop" alt="Gaming Setup" width="300" height="200">
+            </div>
+            
+            <div class="photo-item">
+                <h4>🎬 Anime & Movies</h4>
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=200&fit=crop" alt="Cinema" width="300" height="200">
+            </div>
+            
+            <div class="photo-item">
+                <h4>🏋️ Fitness</h4>
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&h=200&fit=crop" alt="Gym" width="300" height="200">
+            </div>
+            
+            <div class="photo-item">
+                <h4>🇮🇳 India - My Homeland</h4>
+                <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=300&h=200&fit=crop" alt="India - Taj Mahal" width="300" height="200">
+            </div>
+            
+            <div class="photo-item">
+                <h4>🇩🇪 Germany - My Current Home</h4>
+                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=300&h=200&fit=crop" alt="Germany" width="300" height="200">
+            </div>
+        </div>
     </section>
 
-    <br>
-
     <!-- Hobbies Section -->
-    <section id="hobbies">
+    <section id="hobbies" class="hobbies-section">
         <h3>Hobbies</h3>
         <p>Here are some activities I <strong>love</strong> doing in my free time:</p>
-        <ul>
+        <ul class="hobbies-list">
             <li><b>Cooking</b>
                 <ul>
                     <li>Indian Cuisine</li>
@@ -117,10 +642,8 @@
         </ul>
     </section>
 
-    <br>
-
     <!-- Favorite Books Section -->
-    <section id="favorite-books">
+    <section id="favorite-books" class="books-section">
         <h3>Favorite Books</h3>
         <p>Reading is one of my <em>favorite</em> ways to relax. Here are my <strong>top picks</strong>:</p>
         <ol>
@@ -162,21 +685,20 @@
         </ol>
     </section>
 
-    <br>
-
-    <!-- Favorite Movies Table Section -->
-    <section id="favorite-movies">
+    <!-- Favorite Movies Section -->
+    <section id="favorite-movies" class="movies-section">
         <h3>Favorite Movies</h3>
         <p>Here are some of my <strong>all-time favorite movies</strong>:</p>
-        <table border="1" cellpadding="10" cellspacing="0">
-            <thead>
-                <tr>
-                    <th><b>Title</b></th>
-                    <th><b>Director</b></th>
-                    <th><b>Release Year</b></th>
-                    <th><b>IMDb Link</b></th>
-                </tr>
-            </thead>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Director</th>
+                        <th>Release Year</th>
+                        <th>IMDb Link</th>
+                    </tr>
+                </thead>
             <tbody>
                 <tr>
                     <td>Shutter Island</td>
@@ -213,12 +735,11 @@
                 </tr>
             </tbody>
         </table>
+        </div>
     </section>
 
-    <br>
-
     <!-- YouTube Video Section -->
-    <section id="video">
+    <section id="video" class="video-section">
         <h3>Favorite YouTube Video</h3>
         <p>Here's a <strong>CSS course from Harvard CS50</strong> that I highly recommend:</p>
         <iframe 
@@ -233,10 +754,8 @@
         <p><small>Harvard CS50's Web Programming with Python and JavaScript - CSS Lecture</small></p>
     </section>
 
-    <br>
-
-    <!-- My Location Section with Google Map -->
-    <section id="location">
+    <!-- Location Section -->
+    <section id="location" class="location-section">
         <h3>My Location</h3>
         <p>I am currently studying at <strong>DHBW Mosbach</strong> in Germany. Here's the location on the map:</p>
         <iframe 
@@ -251,68 +770,67 @@
         <p><small>📍 DHBW Mosbach, Germany</small></p>
     </section>
 
-    <br>
-
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <h3>Contact Me</h3>
         <p>Feel free to reach out to me through any of these platforms:</p>
-        <ul>
+        <ul class="profile-links">
             <li>Email: <a href="mailto:ayu.diyundi.25@lehre.mosbach.dhbw.de">ayu.diyundi.25@lehre.mosbach.dhbw.de</a></li>
             <li>GitHub: <a href="https://github.com/AyushDiyundi" target="_blank">AyushDiyundi</a></li>
         </ul>
 
-        <br>
         <h4>Send me a Message</h4>
         <form action="#" method="POST">
-            <!-- Full Name (Required) -->
-            <label for="fullName"><b>Full Name:</b> <span style="color: red;">*</span></label><br>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
-            <br><br>
+       
+            <div class="form-group">
+                <label for="fullName"><b>Full Name:</b> <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
 
-            <!-- Email Address -->
-            <label for="email"><b>Email Address:</b></label><br>
-            <input type="email" id="email" name="email" placeholder="Enter your email address">
-            <br><br>
+            <div class="form-group">
+                <label for="email"><b>Email Address:</b></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
 
-            <!-- Phone Number -->
-            <label for="phone"><b>Phone Number:</b></label><br>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9+\-\s()]*">
-            <br><br>
+            <div class="form-group">
+                <label for="phone"><b>Phone Number:</b></label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9+\-\s()]*">
+            </div>
 
-            <!-- Gender (Radio Buttons - only one option) -->
-            <label><b>Gender:</b></label><br>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other">
-            <label for="other">Other</label>
-            <input type="radio" id="preferNotToSay" name="gender" value="preferNotToSay">
-            <label for="preferNotToSay">Prefer not to say</label>
-            <br><br>
+            <div class="form-group">
+                <label><b>Gender:</b></label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                    <input type="radio" id="preferNotToSay" name="gender" value="preferNotToSay">
+                <label for="preferNotToSay">Prefer not to say</label>
+                </div>
+            </div>
 
-            <!-- Favorite Color -->
-            <label for="favoriteColor"><b>Favorite Color:</b></label><br>
-            <input type="color" id="favoriteColor" name="favoriteColor" value="#3498db">
-            <br><br>
+            <div class="form-group">
+                <label for="favoriteColor"><b>Favorite Color:</b></label>
+                <input type="color" id="favoriteColor" name="favoriteColor" value="#3498db">
+            </div>
 
-            <!-- Message -->
-            <label for="message"><b>Message:</b></label><br>
-            <textarea id="message" name="message" rows="5" cols="40" placeholder="Write your message here..."></textarea>
-            <br><br>
+            <div class="form-group">
+                <label for="message"><b>Message:</b></label>
+                <textarea id="message" name="message" rows="5" cols="40" placeholder="Write your message here..."></textarea>
+            </div>
 
-            <!-- Submit Button -->
-            <button type="submit"><b>Submit</b></button>
-            <button type="reset">Reset</button>
+            <div class="btn-group">
+                <button type="submit"><b>Submit</b></button>
+                <button type="reset">Reset</button>
+            </div>
         </form>
-        <p><small><span style="color: red;">*</span> Required field</small></p>
+        <p><small><span class="required">*</span> Required field</small></p>
     </section>
 
-    <br>
-
     <!-- Conclusion Section -->
-    <section id="conclusion">
+    <section id="conclusion" class="conclusion-section">
         <h3>Conclusion</h3>
         <p>
             To summarize, I am <strong>Ayush Diyundi</strong>, a 23-year-old from India, 
@@ -331,9 +849,7 @@
 
     </main>
 
-    <br>
-
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
         <p><strong>© 2026 Ayush Diyundi</strong> | All Rights Reserved</p>
         <a href="#top">⬆ Back to Top</a>
