@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primitive Data Types - JavaScript Exercise</title>
+</head>
+<body>
+    <h1>Primitive Data Types Exercise</h1>
+    <p>Open the browser console (F12) to see the output.</p>
+
+    <script>
+        // Exercise: Primitive Data Types
+
+        // 1. Declare a variable `age` and assign it your age as a number.
+        let age = 23;
+
+        // 2. Declare a variable `name` and assign it your name as a string.
+        let name = "Ayush Diyundi";
+
+        // 3. Declare a variable `isStudent` and assign it a boolean value representing whether you are currently a student or not.
+        let isStudent = true;
+
+        // 4. Print the values of all the variables to the console.
+        console.log("=== Variable Values ===");
+        console.log("age:", age);
+        console.log("name:", name);
+        console.log("isStudent:", isStudent);
+
+        // 5. Check the data type of each variable using the `typeof` operator and print the results to the console.
+        console.log("\n=== Data Types ===");
+        console.log("typeof age:", typeof age);
+        console.log("typeof name:", typeof name);
+        console.log("typeof isStudent:", typeof isStudent);
+
+        // 6. Create a new variable `birthYear` and calculate your birth year based on your current age. Print the result to the console.
+        let currentYear = new Date().getFullYear();
+        let birthYear = currentYear - age;
+        console.log("\n=== Birth Year Calculation ===");
+        console.log("currentYear:", currentYear);
+        console.log("birthYear:", birthYear);
+
+        // 7. Declare a variable `fullName` and concatenate your name and age. Print the result to the console.
+        let fullName = name + " is " + age + " years old";
+        console.log("\n=== Concatenation ===");
+        console.log("fullName:", fullName);
+
+        // 8. Calculate the length of your favorite fruit string using the `length` property. Print the result to the console.
+        let favoriteFruit = "Mango";
+        console.log("\n=== String Length ===");
+        console.log("Favorite fruit:", favoriteFruit);
+        console.log("Length of favorite fruit:", favoriteFruit.length);
+
+        // 9. Declare a variable `nullVariable` and assign it a value of `null`. Check its data type and print the result to the console.
+        let nullVariable = null;
+        console.log("\n=== Null Variable ===");
+        console.log("nullVariable:", nullVariable);
+        console.log("typeof nullVariable:", typeof nullVariable); // Note: This returns "object" which is a known JavaScript quirk
+
+        // 10. Declare a variable `undefinedVariable` without assigning any value to it. Check its data type and print the result to the console.
+        let undefinedVariable;
+        console.log("\n=== Undefined Variable ===");
+        console.log("undefinedVariable:", undefinedVariable);
+        console.log("typeof undefinedVariable:", typeof undefinedVariable);
+
+        // 11. Create a variable `numericString` and assign it a string containing a numeric value. Use the `parseInt()` function to convert it to an actual number. Print the converted value and its data type to the console.
+        let numericString = "42";
+        let convertedNumber = parseInt(numericString);
+        console.log("\n=== String to Number Conversion ===");
+        console.log("numericString:", numericString);
+        console.log("typeof numericString:", typeof numericString);
+        console.log("convertedNumber:", convertedNumber);
+        console.log("typeof convertedNumber:", typeof convertedNumber);
+
+        // 12. Create a variable `nanVariable` and assign it a value of `NaN`. Check its data type and print the result to the console.
+        let nanVariable = NaN;
+        console.log("\n=== NaN Variable ===");
+        console.log("nanVariable:", nanVariable);
+        console.log("typeof nanVariable:", typeof nanVariable);
+
+        // 13. Declare a variable `infinityVariable` and assign it a value of `Infinity`. Check its data type and print the result to the console.
+        let infinityVariable = Infinity;
+        console.log("\n=== Infinity Variable ===");
+        console.log("infinityVariable:", infinityVariable);
+        console.log("typeof infinityVariable:", typeof infinityVariable);
+
+        // 14. Declare a variable `negativeInfinityVariable` and assign it a value of `-Infinity`. Check its data type and print the result to the console.
+        let negativeInfinityVariable = -Infinity;
+        console.log("\n=== Negative Infinity Variable ===");
+        console.log("negativeInfinityVariable:", negativeInfinityVariable);
+        console.log("typeof negativeInfinityVariable:", typeof negativeInfinityVariable);
+
+        console.log("\n=== All Exercises Completed! ===");
+    </script>
+</body>
+</html>

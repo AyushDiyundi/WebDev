@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions, Loops, and Conditionals - JavaScript Exercise</title>
+</head>
+<body>
+    <h1>Functions, Loops, and Conditionals Exercise</h1>
+    <p>Open the browser console (F12) to see the output.</p>
+
+    <script>
+        // Exercise: Functions, Loops, and Conditionals
+
+        // 1. Write a function called `isEven` that takes a number as an argument and returns true if the number is even, and false otherwise.
+        function isEven(number) {
+            return number % 2 === 0;
+        }
+        console.log("=== 1. isEven Function ===");
+        console.log("isEven(4):", isEven(4));   // true
+        console.log("isEven(7):", isEven(7));   // false
+        console.log("isEven(0):", isEven(0));   // true
+
+        // 2. Write a function called `printRange` that takes two numbers, start and end, as arguments and prints all the numbers in between (inclusive) to the console.
+        function printRange(start, end) {
+            for (let i = start; i <= end; i++) {
+                console.log(i);
+            }
+        }
+        console.log("\n=== 2. printRange Function ===");
+        console.log("printRange(1, 5):");
+        printRange(1, 5);
+
+        // 4. Write a function called `countOccurrences` that takes an array of numbers and a target number as arguments and returns the number of times the target number appears in the array.
+        function countOccurrences(array, target) {
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === target) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        console.log("\n=== 4. countOccurrences Function ===");
+        let numbers = [1, 2, 3, 2, 4, 2, 5];
+        console.log("Array:", numbers);
+        console.log("countOccurrences([1,2,3,2,4,2,5], 2):", countOccurrences(numbers, 2)); // 3
+
+        // 5. Write a function called `reverseString` that takes a string as an argument and returns the reversed version of the string.
+        function reverseString(str) {
+            let reversed = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversed += str[i];
+            }
+            return reversed;
+        }
+        console.log("\n=== 5. reverseString Function ===");
+        console.log("reverseString('hello'):", reverseString("hello")); // "olleh"
+        console.log("reverseString('JavaScript'):", reverseString("JavaScript")); // "tpircSavaJ"
+
+        // 6. Write a function called `isPalindrome` that takes a string as an argument and returns true if the string is a palindrome (reads the same forwards and backwards), and false otherwise.
+        function isPalindrome(str) {
+            let reversed = reverseString(str.toLowerCase());
+            return str.toLowerCase() === reversed;
+        }
+        console.log("\n=== 6. isPalindrome Function ===");
+        console.log("isPalindrome('racecar'):", isPalindrome("racecar")); // true
+        console.log("isPalindrome('hello'):", isPalindrome("hello"));     // false
+        console.log("isPalindrome('Madam'):", isPalindrome("Madam"));     // true
+
+        // 7. Write a function called `capitalizeFirstLetter` that takes a string as an argument and returns the string with the first letter capitalized.
+        function capitalizeFirstLetter(str) {
+            if (str.length === 0) return str;
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        console.log("\n=== 7. capitalizeFirstLetter Function ===");
+        console.log("capitalizeFirstLetter('hello'):", capitalizeFirstLetter("hello")); // "Hello"
+        console.log("capitalizeFirstLetter('javaScript'):", capitalizeFirstLetter("javaScript")); // "JavaScript"
+
+        // 8. Write a loop that prints the numbers from 1 to 100. For multiples of 3, print "Fizz" instead of the number. For multiples of 5, print "Buzz" instead of the number. For numbers that are multiples of both 3 and 5, print "FizzBuzz".
+        console.log("\n=== 8. FizzBuzz ===");
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log("FizzBuzz");
+            } else if (i % 3 === 0) {
+                console.log("Fizz");
+            } else if (i % 5 === 0) {
+                console.log("Buzz");
+            } else {
+                console.log(i);
+            }
+        }
+
+        // 9. Write a loop that calculates and prints the sum of all the numbers from 1 to 10.
+        console.log("\n=== 9. Sum of 1 to 10 ===");
+        let sum = 0;
+        for (let i = 1; i <= 10; i++) {
+            sum += i;
+        }
+        console.log("Sum of numbers from 1 to 10:", sum); // 55
+
+        // 10. Write a loop that iterates from 0 to 5. For each iteration, print the iteration number and check if it is even or odd. Print "Even" if the number is even, and "Odd" if the number is odd.
+        console.log("\n=== 10. Even or Odd (0 to 5) ===");
+        for (let i = 0; i <= 5; i++) {
+            if (i % 2 === 0) {
+                console.log(i + " - Even");
+            } else {
+                console.log(i + " - Odd");
+            }
+        }
+
+        // 11. Write a loop that iterates from 1 to 10. For each iteration, print the multiplication table of the current number. The output should be formatted like: "2 x 1 = 2", "2 x 2 = 4", etc.
+        console.log("\n=== 11. Multiplication Tables (1 to 10) ===");
+        for (let i = 1; i <= 10; i++) {
+            console.log("--- Multiplication Table of " + i + " ---");
+            for (let j = 1; j <= 10; j++) {
+                console.log(i + " x " + j + " = " + (i * j));
+            }
+        }
+
+        // 12. Write a loop that iterates through an array of names. For each name, check if it starts with the letter "J". If it does, print "Hello, " followed by the name. If it doesn't, print "Goodbye, " followed by the name.
+        console.log("\n=== 12. Names Starting with J ===");
+        let names = ["John", "Jane", "Mike", "Jessica", "Tom", "Julia"];
+        for (let i = 0; i < names.length; i++) {
+            if (names[i].charAt(0).toUpperCase() === "J") {
+                console.log("Hello, " + names[i]);
+            } else {
+                console.log("Goodbye, " + names[i]);
+            }
+        }
+
+        // 14. Write a loop that iterates through the numbers from 1 to 20. For each number, check if it is divisible by 2. If it is, calculate its square and print the result. If it is not divisible by 2, calculate its cube and print the result.
+        console.log("\n=== 14. Square (even) or Cube (odd) ===");
+        for (let i = 1; i <= 20; i++) {
+            if (i % 2 === 0) {
+                console.log(i + " is even, square: " + (i * i));
+            } else {
+                console.log(i + " is odd, cube: " + (i * i * i));
+            }
+        }
+
+        // 15. Write a loop that iterates from 1 to 5. For each iteration, prompt the user to enter a number. Calculate the sum of all the numbers entered and print the result.
+        console.log("\n=== 15. Sum of User Input (5 numbers) ===");
+        let userSum = 0;
+        for (let i = 1; i <= 5; i++) {
+            let userInput = prompt("Enter number " + i + " of 5:");
+            let num = parseInt(userInput);
+            if (!isNaN(num)) {
+                userSum += num;
+                console.log("Number " + i + ": " + num);
+            } else {
+                console.log("Invalid input, skipping...");
+            }
+        }
+        console.log("Total sum of entered numbers:", userSum);
+
+        // 16. Write a loop that generates a random number between 1 and 10. Keep generating numbers until you get a number greater than 5. Print the final number.
+        console.log("\n=== 16. Random Number > 5 ===");
+        let randomNum;
+        let attempts = 0;
+        do {
+            randomNum = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+            attempts++;
+            console.log("Attempt " + attempts + ": " + randomNum);
+        } while (randomNum <= 5);
+        console.log("Final number greater than 5:", randomNum);
+        console.log("Total attempts:", attempts);
+
+        console.log("\n=== All Exercises Completed! ===");
+    </script>
+</body>
+</html>
